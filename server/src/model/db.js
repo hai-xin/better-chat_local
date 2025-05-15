@@ -9,7 +9,7 @@ const path = require('path');
 let host = '127.0.0.1'; // 数据库的 IP 地址
 let port = 3306; // 端口
 let user = 'root'; // 登录数据库的账号
-let password = '123456'; // 登录数据库的密码
+let password = '1qaz2wsx'; // 登录数据库的密码
 let database = 'better-chat'; // 指定要操作哪个数据库
 // 如果存在配置文件，则读取配置文件中的配置
 const configPath = path.join(process.cwd(), './config.json');

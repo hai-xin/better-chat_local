@@ -228,15 +228,20 @@ const connectRTC = async (ws, req) => {
 						sender: username
 					};
 					broadcastSocket(username, room, msg);
+					// 添加检查确保 LoginRooms[username] 存在
 					delete ChatRTCRooms[room][username];
-					LoginRooms[username].status = false;
+					if(LoginRooms[username]){
+						LoginRooms[username].status = false;
+					}
 					break;
 			}
 		});
 		ws.on('close', () => {
 			if (ChatRTCRooms[room][username]) {
 				delete ChatRTCRooms[room][username];
-				LoginRooms[username].status = false;
+				if (LoginRooms[username]) {
+					LoginRooms[username].status = false;
+				}
 			}
 		});
 	} catch {

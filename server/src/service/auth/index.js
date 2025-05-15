@@ -9,7 +9,14 @@ const { secretKey } = require('../../utils/authenticate');
 const { NotificationUser } = require('../../utils/notification');
 const { Query } = require('../../utils/query');
 
-const better_chat = new Redis();
+// const better_chat = new Redis();
+const better_chat = new Redis({
+  port: 6379, // Redis 服务器的端口号
+  host: '127.0.0.1', // Redis 服务器的地址，默认为 localhost
+  password: 'infini_rag_flow', // Redis 的密码
+  db: 0, // 选择使用的 Redis 数据库，默认为 0
+});
+
 
 /**
  * 登录的基本逻辑：
